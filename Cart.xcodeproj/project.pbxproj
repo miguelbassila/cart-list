@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27C762202854966E0A3130D1 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B717F9163B8DEB90BDBBF1 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F2FDBD84D75C019490F8A016 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B717F9163B8DEB90BDBBF1 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		FCA9A6E61B39080E0064F958 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A6E51B39080E0064F958 /* Product.swift */; };
+		FCA9A6E81B3909820064F958 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A6E71B3909820064F958 /* Price.swift */; };
+		FCA9A6EA1B390A1D0064F958 /* PriceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A6E91B390A1D0064F958 /* PriceTests.swift */; };
 		FCCC9EC51B38F2F100A60888 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC9EC41B38F2F100A60888 /* AppDelegate.swift */; };
 		FCCC9EC71B38F2F100A60888 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC9EC61B38F2F100A60888 /* ViewController.swift */; };
 		FCCC9ECA1B38F2F100A60888 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCCC9EC81B38F2F100A60888 /* Main.storyboard */; };
 		FCCC9ECC1B38F2F100A60888 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCCC9ECB1B38F2F100A60888 /* Images.xcassets */; };
 		FCCC9ECF1B38F2F100A60888 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCCC9ECD1B38F2F100A60888 /* LaunchScreen.xib */; };
-		FCCC9EDB1B38F2F100A60888 /* CartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC9EDA1B38F2F100A60888 /* CartTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +33,9 @@
 		05B717F9163B8DEB90BDBBF1 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F2DBA48C67CE2428980C99F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		25CE069748F140957AF8131E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FCA9A6E51B39080E0064F958 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Product.swift; path = Model/Product.swift; sourceTree = "<group>"; };
+		FCA9A6E71B3909820064F958 /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Price.swift; path = Model/Price.swift; sourceTree = "<group>"; };
+		FCA9A6E91B390A1D0064F958 /* PriceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceTests.swift; sourceTree = "<group>"; };
 		FCCC9EBF1B38F2F100A60888 /* Cart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCCC9EC31B38F2F100A60888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCCC9EC41B38F2F100A60888 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,7 +45,6 @@
 		FCCC9ECE1B38F2F100A60888 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FCCC9ED41B38F2F100A60888 /* CartTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CartTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCCC9ED91B38F2F100A60888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FCCC9EDA1B38F2F100A60888 /* CartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27C762202854966E0A3130D1 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +84,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FCA9A6E41B3907E50064F958 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FCA9A6E51B39080E0064F958 /* Product.swift */,
+				FCA9A6E71B3909820064F958 /* Price.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		FCCC9EB61B38F2F100A60888 = {
 			isa = PBXGroup;
 			children = (
@@ -102,11 +117,9 @@
 			isa = PBXGroup;
 			children = (
 				FCCC9EC41B38F2F100A60888 /* AppDelegate.swift */,
-				FCCC9EC61B38F2F100A60888 /* ViewController.swift */,
-				FCCC9EC81B38F2F100A60888 /* Main.storyboard */,
-				FCCC9ECB1B38F2F100A60888 /* Images.xcassets */,
-				FCCC9ECD1B38F2F100A60888 /* LaunchScreen.xib */,
+				FCA9A6E41B3907E50064F958 /* Model */,
 				FCCC9EC21B38F2F100A60888 /* Supporting Files */,
+				FCCC9EC61B38F2F100A60888 /* ViewController.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -114,7 +127,10 @@
 		FCCC9EC21B38F2F100A60888 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FCCC9ECB1B38F2F100A60888 /* Images.xcassets */,
 				FCCC9EC31B38F2F100A60888 /* Info.plist */,
+				FCCC9ECD1B38F2F100A60888 /* LaunchScreen.xib */,
+				FCCC9EC81B38F2F100A60888 /* Main.storyboard */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -122,7 +138,7 @@
 		FCCC9ED71B38F2F100A60888 /* CartTests */ = {
 			isa = PBXGroup;
 			children = (
-				FCCC9EDA1B38F2F100A60888 /* CartTests.swift */,
+				FCA9A6E91B390A1D0064F958 /* PriceTests.swift */,
 				FCCC9ED81B38F2F100A60888 /* Supporting Files */,
 			);
 			path = CartTests;
@@ -143,9 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCCC9EDE1B38F2F100A60888 /* Build configuration list for PBXNativeTarget "Cart" */;
 			buildPhases = (
+				A8C47A1DAD9C877409E2483F /* Check Pods Manifest.lock */,
 				FCCC9EBB1B38F2F100A60888 /* Sources */,
 				FCCC9EBC1B38F2F100A60888 /* Frameworks */,
 				FCCC9EBD1B38F2F100A60888 /* Resources */,
+				59807EEE07AFB97535E3423A /* Embed Pods Frameworks */,
+				AC45BE1FD31D97EBCC7F8533 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -236,6 +255,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		59807EEE07AFB97535E3423A /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		925C84F0BC6A3D2A9AECD772 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -249,6 +283,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A8C47A1DAD9C877409E2483F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AC45BE1FD31D97EBCC7F8533 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E6D8D17080F193F2936BFE3C /* Copy Pods Resources */ = {
@@ -289,7 +353,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCCC9EC71B38F2F100A60888 /* ViewController.swift in Sources */,
+				FCA9A6E81B3909820064F958 /* Price.swift in Sources */,
 				FCCC9EC51B38F2F100A60888 /* AppDelegate.swift in Sources */,
+				FCA9A6E61B39080E0064F958 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCCC9EDB1B38F2F100A60888 /* CartTests.swift in Sources */,
+				FCA9A6EA1B390A1D0064F958 /* PriceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,21 +480,27 @@
 		};
 		FCCC9EDF1B38F2F100A60888 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F2DBA48C67CE2428980C99F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Cart/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = NO;
 			};
 			name = Debug;
 		};
 		FCCC9EE01B38F2F100A60888 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25CE069748F140957AF8131E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Cart/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = NO;
 			};
 			name = Release;
 		};

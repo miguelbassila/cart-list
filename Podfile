@@ -4,7 +4,3 @@ use_frameworks!
 
 pod 'Kingfisher', '~> 1.4'
 
-link_with 'CartTests'
-use_frameworks!
-pod 'Quick'
-pod 'Nimble'
