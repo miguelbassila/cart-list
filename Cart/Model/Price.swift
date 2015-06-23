@@ -27,7 +27,7 @@ public struct Price {
   }
   
   public init(amount: Int?) {
-    if let amount = amount {
+    if let amount = amount where amount > 0 {
       self.amount = amount
     } else {
       self.amount = 0
