@@ -1,0 +1,16 @@
+PODS:
+  - Kingfisher (1.4.1)
+  - Nimble (0.4.2)
+  - Quick (0.4.0)
+
+DEPENDENCIES:
+  - Kingfisher (~> 1.4)
+  - Nimble
+  - Quick
+
+SPEC CHECKSUMS:
+  Kingfisher: 962a21cdc2a7b0fa63be3b2c45ea6f180feda535
+  Nimble: 49b7a7da8919f42823d37c6d68cc6d15a7009f32
+  Quick: 2286bfff349102670c6d2dafd0d2cefab42f5f0b
+
+COCOAPODS: 0.37.2

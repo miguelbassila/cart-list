@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F2FDBD84D75C019490F8A016 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B717F9163B8DEB90BDBBF1 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FCCC9EC51B38F2F100A60888 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC9EC41B38F2F100A60888 /* AppDelegate.swift */; };
 		FCCC9EC71B38F2F100A60888 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC9EC61B38F2F100A60888 /* ViewController.swift */; };
 		FCCC9ECA1B38F2F100A60888 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCCC9EC81B38F2F100A60888 /* Main.storyboard */; };
@@ -26,6 +27,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05B717F9163B8DEB90BDBBF1 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F2DBA48C67CE2428980C99F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		25CE069748F140957AF8131E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FCCC9EBF1B38F2F100A60888 /* Cart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCCC9EC31B38F2F100A60888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCCC9EC41B38F2F100A60888 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,18 +54,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2FDBD84D75C019490F8A016 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E9E19782B3DC72FEFBF2EA2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05B717F9163B8DEB90BDBBF1 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		925F91CBF818409B9D77627D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0F2DBA48C67CE2428980C99F /* Pods.debug.xcconfig */,
+				25CE069748F140957AF8131E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FCCC9EB61B38F2F100A60888 = {
 			isa = PBXGroup;
 			children = (
 				FCCC9EC11B38F2F100A60888 /* Cart */,
 				FCCC9ED71B38F2F100A60888 /* CartTests */,
 				FCCC9EC01B38F2F100A60888 /* Products */,
+				925F91CBF818409B9D77627D /* Pods */,
+				7E9E19782B3DC72FEFBF2EA2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,9 +160,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCCC9EE11B38F2F100A60888 /* Build configuration list for PBXNativeTarget "CartTests" */;
 			buildPhases = (
+				925C84F0BC6A3D2A9AECD772 /* Check Pods Manifest.lock */,
 				FCCC9ED01B38F2F100A60888 /* Sources */,
 				FCCC9ED11B38F2F100A60888 /* Frameworks */,
 				FCCC9ED21B38F2F100A60888 /* Resources */,
+				FE87A26F87943524E4F303BD /* Embed Pods Frameworks */,
+				E6D8D17080F193F2936BFE3C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -156,6 +183,7 @@
 		FCCC9EB71B38F2F100A60888 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Miguel Bassila";
 				TargetAttributes = {
@@ -206,6 +234,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		925C84F0BC6A3D2A9AECD772 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E6D8D17080F193F2936BFE3C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE87A26F87943524E4F303BD /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FCCC9EBB1B38F2F100A60888 /* Sources */ = {
@@ -358,6 +434,7 @@
 		};
 		FCCC9EE21B38F2F100A60888 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F2DBA48C67CE2428980C99F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -377,6 +454,7 @@
 		};
 		FCCC9EE31B38F2F100A60888 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25CE069748F140957AF8131E /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -409,6 +487,7 @@
 				FCCC9EE01B38F2F100A60888 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FCCC9EE11B38F2F100A60888 /* Build configuration list for PBXNativeTarget "CartTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +496,7 @@
 				FCCC9EE31B38F2F100A60888 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
