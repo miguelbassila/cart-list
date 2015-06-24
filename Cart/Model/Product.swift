@@ -9,17 +9,17 @@
 import Foundation
 
 class Product {
-/*
+
   let id: String
   let name: String
-  let price: Int
-  let image: NSURL
+  let price: Price
+  let image: NSURL?
   var description: String?
   
-  init(json: Dictionary<String, AnyObject>) {
-    id = json["id"]
-    name = json["name"]
-    price = json["price"]
-    image = NSURL(string: json["image"])
-  } */
+  init(id: String, name: String, price: Int, image: String, description: String?){
+    self.id = id
+    self.name = name
+    self.price = Price(amount: price)
+    self.image = NSURL(string: image)
+  }
 }

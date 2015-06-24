@@ -15,28 +15,28 @@ class PriceTests: XCTestCase {
   func testFormattedPrice() {
     let price = Price(amount: 120)
     if let formattedPrice = price.formatted {
-      XCTAssertEqual(formattedPrice, "€1,20", "Should be formatted")
+      XCTAssertEqual(formattedPrice, "€1,20")
     }
   }
   
   func testFormattedPriceOnlyDigits() {
     let price = Price(amount: 47)
     if let formattedPrice = price.formatted {
-      XCTAssertEqual(formattedPrice, "€0,47", "Should be formatted")
+      XCTAssertEqual(formattedPrice, "€0,47")
     }
   }
   
   func testFormattedZeroPrice() {
     let price = Price(amount: 0)
     if let formattedPrice = price.formatted {
-      XCTAssertEqual(formattedPrice, "€0,00", "Should be formatted")
+      XCTAssertEqual(formattedPrice, "€0,00")
     }
   }
   
   func testFormattedNegativePrice() {
     let price = Price(amount: -200)
     if let formattedPrice = price.formatted {
-      XCTAssertEqual(formattedPrice, "€0,00", "Should be formatted")
+      XCTAssertEqual(formattedPrice, "€0,00")
     }
   }
 }
