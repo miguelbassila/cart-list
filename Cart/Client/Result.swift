@@ -11,14 +11,15 @@ import Foundation
 /*
  * Hack to store any value to enum
  * With Swift 2.0 it is not longer necessary (\0/)
+ * Enum<T1, T2>
  */
 
-enum Result<A> {
+public enum Result<A> {
   case Error(String)
   case Value(Box<A>)
 }
 
-final class Box<A> {
+public final class Box<A> {
   let value: A
   
   init(_ value: A) {

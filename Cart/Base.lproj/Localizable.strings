@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  Cart
+
+  Created by Miguel Bassila on 6/24/15.
+  Copyright (c) 2015 Miguel Bassila. All rights reserved.
+*/
+
+"url_findAllProducts" = "https://s3-eu-west-1.amazonaws.com/developer-application-test/cart/list";

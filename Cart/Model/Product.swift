@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Product {
+public class Product {
 
   let id: String
   let name: String
@@ -16,7 +16,7 @@ class Product {
   let image: NSURL?
   var description: String?
   
-  init(id: String, name: String, price: Int, image: String, description: String?){
+  init(id: String, name: String, price: Int, image: String){
     self.id = id
     self.name = name
     self.price = Price(amount: price)
