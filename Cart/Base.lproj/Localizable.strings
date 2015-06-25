@@ -12,6 +12,7 @@
  */
 
 "url_findAllProducts" = "https://s3-eu-west-1.amazonaws.com/developer-application-test/cart/list";
+"url_getProductDetail" = "https://s3-eu-west-1.amazonaws.com/developer-application-test/cart/%@/detail";
 
 /*
  * View Controllers title

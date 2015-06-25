@@ -11,11 +11,12 @@ import UIKit
 let reuseIdentifier = "ProductCell"
 
 class ProductsListViewController: UICollectionViewController {
- 
+  
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
   var dataSource: [Product]?
-
+  var product: Product?
+  
   // MARK: - View Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -28,7 +29,7 @@ class ProductsListViewController: UICollectionViewController {
     activityIndicator.startAnimating()
     productClient.getAllProducts { [unowned self] (result) in
       self.activityIndicator.stopAnimating()
-      switch (result) {
+      switch result {
       case let .Error(error):
         self.tryAgainWithMessage(error)
       case let .Value(boxedProducts):
@@ -38,15 +39,29 @@ class ProductsListViewController: UICollectionViewController {
     }
   }
   
+  func getProductDetail(product: Product, productClient: ProductClient = ProductClient()){
+    activityIndicator.startAnimating()
+    productClient.getDetailFromProduct(product) { [unowned self] (result) in
+      self.activityIndicator.stopAnimating()
+      switch result {
+      case let .Error(error):
+        self.tryAgainWithMessage(error)
+      case let .Value(boxedProduct):
+        self.product = boxedProduct.value
+        self.performSegueWithIdentifier("showProductDetail", sender: self)
+      }
+    }
+  }
+  
   func tryAgainWithMessage(message: String) {
     let alertController = UIAlertController(title: "Ops!", message: message, preferredStyle: .Alert)
     
     let tryAgainAction = UIAlertAction(title: "Try Again", style: .Default) { (_) in self.getProducts() }
     alertController.addAction(tryAgainAction)
-
+    
     let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
     alertController.addAction(cancelAction)
-
+    
     self.presentViewController(alertController, animated: true, completion: nil)
   }
   
@@ -62,11 +77,30 @@ class ProductsListViewController: UICollectionViewController {
   
   override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ProductViewCell
-
+    
     if let products = dataSource {
       cell.configureCellWithProduct(products[indexPath.row])
     }
     
     return cell
   }
+  
+  // MARK: - UICollectionViewDelegate
+  override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    if let products = dataSource {
+      getProductDetail(products[indexPath.row])
+    }
+  }
+  
+  // MARK: - Navigation
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if let identifier = segue.identifier {
+      if identifier == "showProductDetail" {
+        if let seguedViewController = segue.destinationViewController as? ProductViewController {
+         seguedViewController.product = product
+        }
+      }
+    }
+  }
+  
 }

@@ -12,7 +12,6 @@ import Alamofire
 public struct ProductClient {
   
   public func getAllProducts(completionHandler: (Result<[Product]>) -> ()) {
-
     let url = NSLocalizedString("url_findAllProducts", comment: "URL to get all products")
     
     Alamofire.request(.GET, url).responseJSON { (request, response, json, error) -> Void in
@@ -46,8 +45,32 @@ public struct ProductClient {
     }
   }
   
-  func getDetailFromProduct() {
+  func getDetailFromProduct(product: Product, completionHandler: (Result<Product>) -> ()) {
     
+    let url = NSString.localizedStringWithFormat(NSLocalizedString("url_getProductDetail",  comment:"URL to get product detail"), product.id) as! String
+    
+    Alamofire.request(.GET, url).responseJSON { (request, response, json, error) -> Void in
+      
+      if let _ = error  {
+        completionHandler(Result.Error("Something went wrong trying to get \(product.name) details"))
+        return
+      }
+      
+      var newDescription: String?
+      
+      if let json = JSONObject(json) {
+        if let description = JSONString(json["description"]) {
+          newDescription = description
+        }
+      }
+      
+      if let productDescription = newDescription {
+        product.description = productDescription
+        completionHandler(Result.Value(Box(product)))
+      } else {
+        completionHandler(Result.Error("Something went wrong trying to open \(product.name) details"))
+      }
+    }
   }
 
 }
