@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kPx-J4-icv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Products List View Controller-->
@@ -11,21 +12,58 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="CA3-gW-6TW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.83137254901960789" green="0.83137254901960789" blue="0.83137254901960789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="i7C-e2-k9y">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="140" height="154"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="15" minY="10" maxX="15" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="isW-pG-H3c">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCell" id="isW-pG-H3c" customClass="ProductViewCell" customModule="Cart" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="140" height="154"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f3u-iZ-CWf" userLabel="Product image">
+                                            <rect key="frame" x="8" y="8" width="124" height="100"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H81-fe-kMi" userLabel="Product price">
+                                            <rect key="frame" x="8" y="128" width="124" height="18"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpY-Mo-chn" userLabel="Product name">
+                                            <rect key="frame" x="8" y="111" width="124" height="17"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                            <color key="textColor" red="0.90588235294117647" green="0.41568627450980394" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="H81-fe-kMi" firstAttribute="top" secondItem="fpY-Mo-chn" secondAttribute="bottom" id="18v-jn-2b3"/>
+                                    <constraint firstItem="f3u-iZ-CWf" firstAttribute="leading" secondItem="fpY-Mo-chn" secondAttribute="leading" id="KSU-iT-9Be"/>
+                                    <constraint firstItem="f3u-iZ-CWf" firstAttribute="top" secondItem="isW-pG-H3c" secondAttribute="topMargin" id="LIX-vV-ZdW"/>
+                                    <constraint firstItem="f3u-iZ-CWf" firstAttribute="trailing" secondItem="fpY-Mo-chn" secondAttribute="trailing" id="UQh-Nx-Hwf"/>
+                                    <constraint firstItem="H81-fe-kMi" firstAttribute="leading" secondItem="fpY-Mo-chn" secondAttribute="leading" id="VpB-cu-8tp"/>
+                                    <constraint firstItem="fpY-Mo-chn" firstAttribute="top" secondItem="f3u-iZ-CWf" secondAttribute="bottom" constant="3" id="W98-sj-cnb"/>
+                                    <constraint firstItem="f3u-iZ-CWf" firstAttribute="leading" secondItem="isW-pG-H3c" secondAttribute="leadingMargin" id="gzr-QN-B6S"/>
+                                    <constraint firstItem="f3u-iZ-CWf" firstAttribute="trailing" secondItem="isW-pG-H3c" secondAttribute="trailingMargin" id="vIW-Uj-mqC"/>
+                                    <constraint firstItem="H81-fe-kMi" firstAttribute="trailing" secondItem="fpY-Mo-chn" secondAttribute="trailing" id="xPO-Lq-arv"/>
+                                    <constraint firstItem="H81-fe-kMi" firstAttribute="bottom" secondItem="isW-pG-H3c" secondAttribute="bottomMargin" id="zD6-9V-jeZ"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="productImageView" destination="f3u-iZ-CWf" id="Ap5-Ty-R6K"/>
+                                    <outlet property="productName" destination="fpY-Mo-chn" id="IWE-y4-7jT"/>
+                                    <outlet property="productPrice" destination="H81-fe-kMi" id="AkA-yR-Z7O"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -36,7 +74,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AmV-a9-Y3f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="510" y="239"/>
+            <point key="canvasLocation" x="112" y="156"/>
         </scene>
     </scenes>
 </document>
