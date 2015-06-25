@@ -20,7 +20,7 @@ class ProductsListViewController: UICollectionViewController {
   // MARK: - View Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.title = NSLocalizedString("title_productList", comment: "")
+    self.title = NSLocalizedString("title_productList", comment: "View controller title")
     getProducts()
   }
   
@@ -31,7 +31,7 @@ class ProductsListViewController: UICollectionViewController {
       self.activityIndicator.stopAnimating()
       switch result {
       case let .Error(error):
-        self.tryAgainWithMessage(error)
+        self.tryAgainWithMessage(true, message: error)
       case let .Value(boxedProducts):
         self.dataSource = boxedProducts.value
         self.collectionView!.reloadData()
@@ -45,7 +45,7 @@ class ProductsListViewController: UICollectionViewController {
       self.activityIndicator.stopAnimating()
       switch result {
       case let .Error(error):
-        self.tryAgainWithMessage(error)
+        self.tryAgainWithMessage(false, message: error)
       case let .Value(boxedProduct):
         self.product = boxedProduct.value
         self.performSegueWithIdentifier("showProductDetail", sender: self)
@@ -53,18 +53,30 @@ class ProductsListViewController: UICollectionViewController {
     }
   }
   
-  func tryAgainWithMessage(message: String) {
+  func tryAgainWithMessage(try: Bool, message: String) {
     let alertController = UIAlertController(title: "Ops!", message: message, preferredStyle: .Alert)
+
+    if try {
+      getProductsAlertController(alertController)
+    } else {
+      getProductDetailAlertController(alertController)
+    }
     
+    self.presentViewController(alertController, animated: true, completion: nil)
+  }
+  
+  func getProductsAlertController(alertController: UIAlertController) {
     let tryAgainAction = UIAlertAction(title: "Try Again", style: .Default) { (_) in self.getProducts() }
     alertController.addAction(tryAgainAction)
     
     let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
     alertController.addAction(cancelAction)
-    
-    self.presentViewController(alertController, animated: true, completion: nil)
   }
   
+  func getProductDetailAlertController(alertController: UIAlertController) {
+    let cancelAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+    alertController.addAction(cancelAction)
+  }
   
   // MARK: - UICollectionViewDataSource
   override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

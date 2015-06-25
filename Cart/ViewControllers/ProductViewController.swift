@@ -20,9 +20,7 @@ class ProductViewController: UIViewController {
   // MARK: - View Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
-  }
-  
-  override func viewWillAppear(animated: Bool) {
+    self.title = NSLocalizedString("title_productDetail", comment: "View controller title")
     updateLabels()
   }
   
@@ -36,15 +34,5 @@ class ProductViewController: UIViewController {
       productImageView.kf_setImageWithURL(imageURL)
     }
   }
-  
-  /*
-  // MARK: - Navigation
-  
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-  // Get the new view controller using segue.destinationViewController.
-  // Pass the selected object to the new view controller.
-  }
-  */
   
 }

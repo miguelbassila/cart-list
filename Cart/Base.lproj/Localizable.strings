@@ -17,4 +17,5 @@
 /*
  * View Controllers title
  */
+"title_productDetail" = "Detail";
 "title_productList" = "My Cart";
