@@ -16,15 +16,17 @@ public struct ProductClient {
     let url = NSLocalizedString("url_findAllProducts", comment: "URL to get all products")
     
     Alamofire.request(.GET, url).responseJSON { (request, response, json, error) -> Void in
+      
+      if let _ = error  {
+        completionHandler(Result.Error("Something went wrong trying to get all cart products."))
+        return
+      }
+      
       if let json = JSONObject(json) {
         if let jsonProducts = JSONArrayObject(json["products"]) {
 
           var products = [Product]()
           for product in jsonProducts {
-            
-            /*
-             * Would be much cleaner with guards or a JSON library
-             */
             
             if let id = JSONString(product["product_id"]),
               let name = JSONString(product["name"]),
@@ -35,7 +37,7 @@ public struct ProductClient {
           }
           
           if products.isEmpty {
-            completionHandler(Result.Error("Something went wrong trying to get all products"))
+            completionHandler(Result.Error("The list received was missing information."))
           } else {
             completionHandler(Result.Value(Box(products)))
           }
