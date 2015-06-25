@@ -11,6 +11,8 @@ import UIKit
 let reuseIdentifier = "ProductCell"
 
 class ProductsListViewController: UICollectionViewController {
+ 
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
   var dataSource: [Product]?
 
@@ -22,7 +24,9 @@ class ProductsListViewController: UICollectionViewController {
   
   // MARK: - Helpers
   func getProducts(productClient: ProductClient = ProductClient()){
+    activityIndicator.startAnimating()
     productClient.getAllProducts { [unowned self] (result) in
+      self.activityIndicator.stopAnimating()
       switch (result) {
       case let .Error(error):
         self.tryAgainWithMessage(error)
