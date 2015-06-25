@@ -15,6 +15,12 @@ class ProductViewCell: UICollectionViewCell {
   @IBOutlet weak private var productName: UILabel!
   @IBOutlet weak private var productPrice: UILabel!
   
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    contentView.autoresizingMask = UIViewAutoresizing.FlexibleHeight |
+                                   UIViewAutoresizing.FlexibleWidth
+  }
+  
   func configureCellWithProduct(product: Product) {
     productName.text = product.name
     productPrice.text = product.price.formatted

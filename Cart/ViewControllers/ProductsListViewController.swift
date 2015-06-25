@@ -10,7 +10,7 @@ import UIKit
 
 let reuseIdentifier = "ProductCell"
 
-class ProductsListViewController: UICollectionViewController {
+class ProductsListViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
   
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
@@ -21,7 +21,16 @@ class ProductsListViewController: UICollectionViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = NSLocalizedString("title_productList", comment: "View controller title")
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
     getProducts()
+  }
+  
+  override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+    super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+    collectionView!.collectionViewLayout.invalidateLayout()
   }
   
   // MARK: - Helpers
@@ -55,13 +64,11 @@ class ProductsListViewController: UICollectionViewController {
   
   func tryAgainWithMessage(try: Bool, message: String) {
     let alertController = UIAlertController(title: "Ops!", message: message, preferredStyle: .Alert)
-
     if try {
       getProductsAlertController(alertController)
     } else {
       getProductDetailAlertController(alertController)
     }
-    
     self.presentViewController(alertController, animated: true, completion: nil)
   }
   
@@ -78,30 +85,23 @@ class ProductsListViewController: UICollectionViewController {
     alertController.addAction(cancelAction)
   }
   
-  // MARK: - UICollectionViewDataSource
-  override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-    return 1
-  }
-  
-  override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return dataSource?.count ?? 0
-  }
-  
-  override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ProductViewCell
-    
-    if let products = dataSource {
-      cell.configureCellWithProduct(products[indexPath.row])
-    }
-    
-    return cell
-  }
-  
   // MARK: - UICollectionViewDelegate
   override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     if let products = dataSource {
       getProductDetail(products[indexPath.row])
     }
+  }
+  
+  // MARK: - UICollectionViewDelegateFlowLayout
+  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    let width = (CGRectGetWidth(self.collectionView!.frame) / 2) - 20
+    var height: CGFloat?
+    if UIApplication.sharedApplication().statusBarOrientation != UIInterfaceOrientation.Portrait {
+      height = (CGRectGetHeight(self.collectionView!.frame) / 2) - 20
+    } else {
+      height = (CGRectGetHeight(self.collectionView!.frame) / 3) - 20
+    }
+    return CGSizeMake(width, height!)
   }
   
   // MARK: - Navigation
@@ -114,5 +114,6 @@ class ProductsListViewController: UICollectionViewController {
       }
     }
   }
+  
   
 }

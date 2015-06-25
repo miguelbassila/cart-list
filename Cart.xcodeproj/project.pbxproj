@@ -15,6 +15,7 @@
 		FC201A651B3B781D00589C8E /* ProductsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC201A641B3B781D00589C8E /* ProductsListViewController.swift */; };
 		FC201A681B3B89BB00589C8E /* ProductViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC201A671B3B89BB00589C8E /* ProductViewCell.swift */; };
 		FC201A6A1B3B977400589C8E /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC201A691B3B977400589C8E /* ProductViewController.swift */; };
+		FC201A6C1B3BC22100589C8E /* ProductsListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC201A6B1B3BC22000589C8E /* ProductsListDataSource.swift */; };
 		FC5D07451B3A5314002620D0 /* ProductClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5D07441B3A5314002620D0 /* ProductClient.swift */; };
 		FCA9A6E61B39080E0064F958 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A6E51B39080E0064F958 /* Product.swift */; };
 		FCA9A6E81B3909820064F958 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A6E71B3909820064F958 /* Price.swift */; };
@@ -45,6 +46,7 @@
 		FC201A641B3B781D00589C8E /* ProductsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductsListViewController.swift; path = ViewControllers/ProductsListViewController.swift; sourceTree = "<group>"; };
 		FC201A671B3B89BB00589C8E /* ProductViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductViewCell.swift; path = Views/ProductViewCell.swift; sourceTree = "<group>"; };
 		FC201A691B3B977400589C8E /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductViewController.swift; path = ViewControllers/ProductViewController.swift; sourceTree = "<group>"; };
+		FC201A6B1B3BC22000589C8E /* ProductsListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductsListDataSource.swift; path = ViewControllers/ProductsListDataSource.swift; sourceTree = "<group>"; };
 		FC5D07441B3A5314002620D0 /* ProductClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductClient.swift; path = Client/ProductClient.swift; sourceTree = "<group>"; };
 		FCA9A6E51B39080E0064F958 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Product.swift; path = Model/Product.swift; sourceTree = "<group>"; };
 		FCA9A6E71B3909820064F958 /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Price.swift; path = Model/Price.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		FC201A631B3B779D00589C8E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FC201A6B1B3BC22000589C8E /* ProductsListDataSource.swift */,
 				FC201A641B3B781D00589C8E /* ProductsListViewController.swift */,
 				FC201A691B3B977400589C8E /* ProductViewController.swift */,
 			);
@@ -116,8 +119,8 @@
 		FC5D07431B3A512A002620D0 /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				FC5D07441B3A5314002620D0 /* ProductClient.swift */,
 				FC201A611B3B67DB00589C8E /* JSON.swift */,
+				FC5D07441B3A5314002620D0 /* ProductClient.swift */,
 				FC201A5C1B3B5F8D00589C8E /* Result.swift */,
 			);
 			name = Client;
@@ -395,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC201A6C1B3BC22100589C8E /* ProductsListDataSource.swift in Sources */,
 				FC201A5D1B3B5F8D00589C8E /* Result.swift in Sources */,
 				FC201A621B3B67DB00589C8E /* JSON.swift in Sources */,
 				FC5D07451B3A5314002620D0 /* ProductClient.swift in Sources */,
