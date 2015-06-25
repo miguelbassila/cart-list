@@ -19,6 +19,7 @@ class ProductsListViewController: UICollectionViewController {
   // MARK: - View Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.title = NSLocalizedString("title_productList", comment: "")
     getProducts()
   }
   
